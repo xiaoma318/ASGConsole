@@ -12,6 +12,7 @@ body {
 	padding-top: 20px;
 	padding-bottom: 60px;
 	font-size:95%;
+
 }
 
 .sidebar-nav {
@@ -60,7 +61,7 @@ if (instance == null){
   	    </div>
   	    <h4 align="center"> Return Information: </h4>
   	    <div style="text-align:center">
-  	    <textarea rows="5" cols="" style="width:400px" ><%=feedback%></textarea>
+  	    <textarea rows="8" cols="" style="width:600px;font-family: Consolas, monaco, monospace;" ><%=feedback%></textarea>
   	    </div>
    </form>
 </body>

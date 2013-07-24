@@ -5,9 +5,6 @@
     <welcome-file>login.jsp</welcome-file>
     <welcome-file>login.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -198,5 +195,15 @@
   <servlet-mapping>
     <servlet-name>GroupCommand</servlet-name>
     <url-pattern>/GroupCommand</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Filepath</display-name>
+    <servlet-name>Filepath</servlet-name>
+    <servlet-class>com.mc.Filepath</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Filepath</servlet-name>
+    <url-pattern>/Filepath</url-pattern>
   </servlet-mapping>
 </web-app>

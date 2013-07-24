@@ -28,6 +28,7 @@ import="com.amazonaws.auth.BasicAWSCredentials"
 body {
 	padding-top: 60px;
 	padding-bottom: 40px;
+	font-family: Verdana, Geneva, sans-serif;
 }
 
 .sidebar-nav {
@@ -182,12 +183,17 @@ function checkSC(){
 			
 				<ul class="nav">
 					<li class="active"><a href="home.jsp">Home</a></li>
-					<li><a href="#" onclick="showAbout()">About</a></li>
+					<li><a href="#about" onclick="showAbout()">About</a></li>
 					<li><a href="#contact" onclick="showContact()">Contact</a></li>
 				</ul>
+				<ul class="nav pull-right">
+					<li><a href = "login.jsp" > Log out</a></li>
+				</ul>
+
 			</div>
 		</div>
 	</div>
+
    <div class="container-fluid">
 	  <div class="row-fluid">
 	   

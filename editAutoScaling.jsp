@@ -32,6 +32,53 @@ body {
 </style>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  function check(){
+    var zones = document.getElementsByName("zones");
+    var count=0;
+    for(var i=0;i<zones.length;i++){
+      if(zones[i].checked)
+        count++;
+
+    }
+    console.log("count: "+count);
+    if(count == 0){
+      alert("Choose at least one Availability Zone !");
+      return;
+    }
+var max = document.getElementById("max").value;
+  var min = document.getElementById("min").value;
+  var desired = document.getElementById("desired").value;
+   if(max==""||min==""){
+    alert("Maxsize or Minsize cannot be empty !");
+    return;
+  }
+  if(isNaN(max)||isNaN(min)||isNaN(desired)){
+    alert("Maxsize or Minsize or Desired Capacity should be number !");
+    return;
+  }
+  
+  if(parseInt(max)<parseInt(min)){
+    alert("Maxsize should be greater than Minsize !");
+    return;
+  }
+  
+  if(parseInt(max)<parseInt(desired)){
+    alert("Maxsize should be greater than Desired Capacity!");
+    return;
+  }
+  
+  if(parseInt(desired)<parseInt(min)){
+    alert("Desired Capacity should be greater than Minsize !");
+    return;
+  }
+
+  form = document.getElementById("form");
+  form.action="CreateAutoScaling";
+  form.submit();
+
+  }
+</script>
 </head>
 <body>
 <%
@@ -45,14 +92,16 @@ String groupname = (String)request.getParameterValues("checkbox1")[0];
 DescribeAutoScalingGroupsRequest dsRequest = new DescribeAutoScalingGroupsRequest().withAutoScalingGroupNames(groupname);
 AutoScalingGroup asg = client.describeAutoScalingGroups(dsRequest).getAutoScalingGroups().get(0);
 %>
-<form action="CreateAutoScaling" method="post">
+<form id ="form" action="CreateAutoScaling" method="post">
 <input type="hidden" name="msg" value="update"/>
 <h2 align="center">Edit AutoScaling Group</h2><br>
 <div class="well" style="padding:40px ">
  <table align="center" cellpadding=3>
   			  <tr>
   			    <td align="right">Group name: *</td>
-  			    <td><input type="text" name="groupname" value=<%=groupname %> ></td>
+  			    <td><input type="text" disabled value=<%=groupname %>  >
+            <input type="hidden" name="groupname" value=<%=groupname %> >
+            </td>
   			  </tr>
   			  <tr>
   			    <td align="right">Launch Configuration: *</td>
@@ -88,9 +137,9 @@ AutoScalingGroup asg = client.describeAutoScalingGroups(dsRequest).getAutoScalin
   			  </tr>
   			  <tr>
   			    <td align="right">Instance number:</td>
-  			    <td>Max*:&nbsp;<input type="text" style="width:40px;margin-right:5px" name="maxsize" value=<%=asg.getMaxSize() %>>
-  			        Min*:&nbsp;<input type="text" style="width:40px;margin-right:5px" name="minsize" value=<%=asg.getMinSize() %>>
-  			        Desired:&nbsp;<input type="text" style="width:40px;margin-right:5px" value=<%=asg.getDesiredCapacity() %> name="capacity">
+  			    <td>Max*:&nbsp;<input type="text" style="width:40px;margin-right:5px" id='max' name="maxsize" value=<%=asg.getMaxSize() %>>
+  			        Min*:&nbsp;<input type="text" style="width:40px;margin-right:5px" id='min' name="minsize" value=<%=asg.getMinSize() %>>
+  			        Desired:&nbsp;<input type="text" style="width:40px;margin-right:5px" id='desired' value=<%=asg.getDesiredCapacity() %> name="capacity">
   			    </td>
   			  </tr>
   			  <tr>
@@ -134,7 +183,7 @@ AutoScalingGroup asg = client.describeAutoScalingGroups(dsRequest).getAutoScalin
   			</table>
   			<div style="text-align:center;margin-top:30px">
   			  <a href="autoscaling.jsp" class="btn">Cancel</a>&nbsp;&nbsp;
-  			  <button class="btn btn-success" type="submit">Submit</button>
+  			  <button class="btn btn-success" type="button" onclick="check()">Submit</button>
   			</div>
   	    </div>
    </form>

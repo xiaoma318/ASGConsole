@@ -23,6 +23,7 @@ body {
 	padding-top: 20px;
 	padding-bottom: 60px;
 	font-size:95%;
+
 }
 
 .sidebar-nav {
@@ -32,6 +33,28 @@ body {
 </style>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  function check(){
+    var instances = document.getElementsByName("instances");
+    if(instances==null){
+      alert("no instances!");
+      return;
+    }
+    var count =0;
+    for(var i=0;i<instances.length;i++){
+      if(instances[i].checked)
+        count++;
+    }
+    if(count == 0){
+       alert("no instances!");
+      return;
+
+    }
+  form = document.getElementById("form");
+  form.action="GroupCommand";
+  form.submit();
+  }
+</script>
 </head>
 <body>
 <%
@@ -48,7 +71,7 @@ List<Instance> instances = asg.getInstances();
 String feedback = (String)request.getAttribute("res");
 %>
 
-  <form action="GroupCommand" method="post">
+  <form id ='form' action="GroupCommand" method="post">
   <input type="hidden" name="groupname" value=<%=groupname %>>
     <h3 align="center">Enter Command To Instance</h3><br>
     <div class="well" style="padding:40px">
@@ -78,12 +101,12 @@ String feedback = (String)request.getAttribute("res");
   	   </table>
   			<div style="text-align:center;margin-top:30px">
   			  <a href="autoscaling.jsp" class="btn">Back</a>&nbsp;&nbsp;
-  			  <button class="btn btn-success" type="submit">Execute</button>
+  			  <button class="btn btn-success" type="button" onclick="check()">Execute</button>
   			</div>
   	    </div>
   	    <h4 align="center"> Return Information: </h4>
   	    <div style="text-align:center">
-  	    <textarea rows="8" cols="" style="width:600px" ><%=feedback%></textarea>
+  	    <textarea rows="8" cols="" style="width:600px;font-family: Consolas, monaco, monospace;" ><%=feedback%></textarea>
   	    </div>
    </form>
 </body>

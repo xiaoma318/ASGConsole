@@ -19,11 +19,12 @@ import="com.amazonaws.services.ec2.model.InstanceType"
 <title>Launch Configuration</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="css/table.css" rel="stylesheet" media="screen">
 <style type="text/css">
 body {
 	padding-top: 60px;
 	padding-bottom: 40px;
-	
+	font-family: Verdana, Geneva, sans-serif;
 }
 .scroll{
 
@@ -49,7 +50,10 @@ function formSubmit(n){
 		form.action="CreateLC";
 		break;
 	case 2:
-		form.action="DeleteLC";
+	   if(confirm("Are you sure to delete?"))
+		   form.action="DeleteLC";
+	   else
+	    	return;
 		break;
 	}
 	form.submit();
@@ -106,6 +110,9 @@ function checkLC(){
 					<li><a href="home.jsp">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">Contact</a></li>
+				</ul>
+				<ul class="nav pull-right">
+					<li><a href = "login.jsp" > Log out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -246,21 +253,21 @@ function checkLC(){
 		   
 		   <hr style="margin-top:10px" color="#C0C0C0" size=1>
 		  <!--  <input style="margin-bottom:10px" type="text" class="search-query" placeholder="Search"> -->
-		  <br> <div class="scroll">
-		   <table id="maintable" width="1200px" style="table-layout:fixed;word-break:break-all; word-wrap:break-all;" border=2 cellpadding=2>
+		   <div class="scroll">
+		   <table id="maintable" class="maintable" width="800px" style="table-layout:fixed;word-break:break-all; word-wrap:break-all;margin:0px" border="1" >
 		  
 		     <tr style="font-weight:bold" height="30px" align="center">
-		       <td width="30px"><input type="checkbox" onclick="selectAll('checkbox','del')"></td>
-		       <td width="180px">Name</td>
-		       <td width="120px">AMI</td>
-		       <td width="110px">Instance Type</td>
-		       <td width="100px">Key Pair</td>
-		       <td width="150px">Security Group</td>
-		       <td width="160px">Instance Monitoring</td>
-		       <td width="80px">Spot Price</td>
-		       <td width="160px">IAM Instance Profile</td>
-		       <td width="120px">EBS Optimized</td>
-		       <td width="220px">Created</td>
+		       <th width="25px"><input type="checkbox" onclick="selectAll('checkbox','del')"></th>
+		       <th width="150px">Name</th>
+		       <th width="100px">AMI</th>
+		       <th width="100px">Instance Type</th>
+		       <th width="80px">Key Pair</th>
+		       <th width="150px">Security Group</th>
+		       <th width="140px">Instance Monitoring</th>
+		       <th width="70px">Spot Price</th>
+		       <th width="140px">IAM Instance Profile</th>
+		       <th width="120px">EBS Optimized</th>
+		       <th width="220px">Created</th>
 		     </tr>
 		     <%for(LaunchConfiguration lc : configs){ %>
 		     <tr align="center">
@@ -270,7 +277,7 @@ function checkLC(){
 		     <td><%=lc.getInstanceType() %></td>
 		     <td><%=lc.getKeyName() %></td>
 		     <td><%for(String sg:lc.getSecurityGroups()){
-		    	     out.print(sg+" ");
+		    	     out.print(sg+"; ");
 		           }
 		    	 %>
 		     </td>

@@ -7,9 +7,10 @@
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
 <style type="text/css">
      body {
-        padding-top: 40px;
+        padding-top: 80px;
         padding-bottom: 40px;
         background-color: #f5f5f5;
+        font-family: 'Open Sans',sans-serif;
       }
 
       .form-signin {
@@ -36,6 +37,9 @@
         margin-bottom: 15px;
         padding: 7px 9px;
       }
+      img{
+        display: inline;
+      }
      
 
     </style>
@@ -58,7 +62,7 @@ function check(){
  <div class="container">
 
      <form id="form" action="LoginIn" method="post" class="form-signin">
-        <h2 class="form-signin-heading">NI AutoScaling</h2>
+        <h2 class="form-signin-heading" ><img style="width:50px;height:50px;margin-left:30px;margin-right:10px" src='img/cloud.png'>NI AutoScaling</h2>
        <b>Access Key:</b> <input type="text" id="accesskey" name="accesskey" class="input-block-level" >
        <b>Secret Key:</b> <input type="text" id="secretkey" name="secretkey" class="input-block-level" >
       

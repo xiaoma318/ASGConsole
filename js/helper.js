@@ -9,11 +9,17 @@ function showContact(){
 function selectAll(objName,buttonId){
 	var checkboxs = document.getElementsByName(objName);
 	var delButton = document.getElementById(buttonId);
+	var count =0;
 	for(var i=0;i<checkboxs.length;i++){
 		var e = checkboxs[i];
 		e.checked = !e.checked;
+		if(e.checked && e.disabled==false)
+			count ++;
 	}
-	delButton.disabled = !delButton.disabled;
+	if(count!=0)
+		delButton.disabled = false;
+	else
+		delButton.disabled = true;
 }
 
 function activeDel(objName,buttonId){
@@ -49,9 +55,11 @@ function selectAtts(){
 function active(){
 	var obj = document.getElementById("minstep");
 	obj.disabled = false;
+	Concole.log("active");
 }
 function disable(){
 	var obj = document.getElementById("minstep");
 	obj.disabled = true;
+	Concole.log("disabled");
 }
 

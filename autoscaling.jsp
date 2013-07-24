@@ -22,15 +22,18 @@ import="com.amazonaws.services.autoscaling.model.DescribeAutoScalingGroupsReques
 <title>AutoScaling Group</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/table.css" rel="stylesheet" media="screen">
+
 <style type="text/css">
 body {
 	padding-top: 60px;
 	padding-bottom: 40px;
+	font-family: Verdana, Geneva, sans-serif;
 	
 }
 .scroll{
 
-  height:300px;
+  height:330px;
   width:100%;
   
   overflow:auto;
@@ -38,10 +41,15 @@ body {
 .sidebar-nav {
 	padding: 9px 0;
 }
+#maintable{
+	table-layout: fixed;
+
+}
 </style>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/helper.js"></script>
+
 <script type="text/javascript">
 
 function formSubmit(n){
@@ -80,6 +88,8 @@ function formSubmit(n){
 	}
 	form.submit();
 }
+
+
 </script>
 </head>
 <body>
@@ -174,8 +184,12 @@ function checkASG(){
 				<ul class="nav">
 					<li><a href="home.jsp">Home</a></li>
 					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a href="#contact">Contact</a></li>					
 				</ul>
+				<ul class="nav pull-right">
+					<li><a href = "login.jsp" > Log out</a></li>
+				</ul>
+
 			</div>
 		</div>
 	</div>
@@ -325,25 +339,27 @@ function checkASG(){
 		   <hr style="margin-top:10px" color="#C0C0C0" size=1>
 		   
 		   <div class="scroll">
-		   <table id="maintable" width=90%  style="table-layout:fixed;word-break:break-all; word-wrap:break-all;" border=2 cellpadding=1>
-		  
-		     <tr align="center" style="font-weight:bold" height="30px">
-		       <td width="30px"><input type="checkbox" onclick="selectAll('checkbox1','del')"></td>
-		       <td width="150px">Name</td>
-		       <td width="180px">Launch Configuration</td>
-		       <td width="150px">Availability Zone</td>
-		       <td width="50px">Max</td>
-		       <td width="50px">Min</td>
-		       <td width="60px">Desired</td>
-		       <td width="160px">Health Check Type</td>
-		       <td width="90px">Check Grace Period(s)</td>
-		       <td width="160px">Instances</td>
-		       <td width="150px">Termination Policy</td>
-		       <td width="100px">Cooldown(s)</td>
-		       <td width="220px">Created</td>
+		   <table id="maintable" class="maintable" width=80% border="1" style="margin:0px">
+		    <thead>
+		     <tr align="center" >
+		       <th width="25px"><input type="checkbox" onclick="selectAll('checkbox1','del')"></th>
+		       <th width="150px">Name</th>
+		       <th width="180px">Launch Configuration</th>
+		       <th width="150px">Availability Zone</th>
+		       <th width="40px">Max</th>
+		       <th width="40px">Min</th>
+		       <th width="50px">Desired</th>
+		       <th width="130px">Health Check Type</th>
+		       <th width="110px">Check Period(s)</th>
+		       <th width="160px">Instances</th>
+		       <th width="130px">Termination Policy</th>
+		       <th width="100px">Cooldown(s)</th>
+		       <th width="200px">Created</th>
 		     </tr>
+		     </thead>
+		     <tbody>
 		     <%for(AutoScalingGroup asg : groups ){ %>
-		     <tr align="center">
+		     <tr align="center" >
 		   
 		     <td><input type="checkbox" name="checkbox1" onclick="activeDel('checkbox1','del')" value=<%=asg.getAutoScalingGroupName() %> >
 		     </td>
@@ -369,7 +385,7 @@ function checkASG(){
 		     <td><%=asg.getCreatedTime() %></td>
 		     </tr>
 		   <%} %>
-		     
+		     </tbody>
 		   </table>
 		  </div>
 		  <br>
@@ -385,21 +401,21 @@ function checkASG(){
 		     </ul>
 		   </div>
 		      <hr style="margin-top:10px" color="#C0C0C0" size=1>
-		 Click the Instance to Connect
+		 &nbsp;Click the Instance to Connect
 		
 	
 		   <div class="scroll">
-		   <table style="margin-top:10px;table-layout:fixed;word-break:break-all; word-wrap:break-all;" border=2 cellpadding=2>
+		   <table class="maintable"  style="margin:0px" border=1>
 		  
 		     <tr align="center" style="font-weight:bold" height="30px">
-		       <td width="30px"><input type="checkbox" onclick="selectAll('checkbox2','del2')"></td>
-		       <td width="160px">Instance</td>
-		       <td width="120px">AMI</td>
-		       <td width="120px">State</td>
-		       <td width="160px">AutoScaling Group</td>
-		       <td width="180px">Launch Configuration</td>
-		       <td width="140px">Private IP</td>
-		       <td width="140px">Public IP</td>
+		       <th width="30px"><input type="checkbox" onclick="selectAll('checkbox2','del2')"></th>
+		       <th width="160px">Instance</th>
+		       <th width="120px">AMI</th>
+		       <th width="120px">State</th>
+		       <th width="160px">AutoScaling Group</th>
+		       <th width="180px">Launch Configuration</th>
+		       <th width="140px">Private IP</th>
+		       <th width="140px">Public IP</td>
 		     </tr>
 		     <%
 		     DescribeInstancesRequest describeInstanceRequest ;

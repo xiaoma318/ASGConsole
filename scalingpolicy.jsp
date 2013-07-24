@@ -14,11 +14,12 @@ import="com.amazonaws.auth.BasicAWSCredentials"
 <title>Scaling Policy</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="css/table.css" rel="stylesheet" media="screen">
 <style type="text/css">
 body {
 	padding-top: 60px;
 	padding-bottom: 40px;
-	
+	font-family: Verdana, Geneva, sans-serif;
 }
 .scroll{
 
@@ -74,6 +75,21 @@ function checkSC(){
 	form.action="PutScalingPolicy";
 	form.submit();
 }
+
+function check(){
+	var e = document.getElementById('adjustmenttype');
+	var adjustmenttype = e.options[e.selectedIndex].value;
+	var obj = document.getElementById("minstep");
+	
+	if(adjustmenttype == "PercentChangeInCapacity"){
+		
+		obj.disabled = false;
+	}
+	else{
+		obj.disabled = true;
+	}
+
+}
 </script>
 </head>
 <body>
@@ -99,6 +115,9 @@ if(msg!=null && msg.equals("1")){%>
 					<li><a href="home.jsp">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">Contact</a></li>
+				</ul>
+				<ul class="nav pull-right">
+					<li><a href = "login.jsp" > Log out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -152,10 +171,10 @@ if(msg!=null && msg.equals("1")){%>
   			  <tr>
   			    <td align="right">Adjustment Type: </td>
   			    <td>  
-  			      <select name="adjustmenttype">
-    	            <option onclick="disable()">ChangeInCapacity</option>
-    	            <option onclick="disable()">ExactCapacity</option>
-    	            <option onclick="active()">PercentChangeInCapacity</option>
+  			      <select name="adjustmenttype" id='adjustmenttype' onclick="check()">
+    	            <option value="ChangeInCapacity">ChangeInCapacity</option>
+    	            <option value="ExactCapacity">ExactCapacity</option>
+    	            <option value="PercentChangeInCapacity">PercentChangeInCapacity</option>
     	          </select>
   			    </td>
   			  </tr>
@@ -217,16 +236,16 @@ if(msg!=null && msg.equals("1")){%>
 		   <a class="btn pull-right" href="#"  onclick="location.reload()"><i class="icon-refresh"></i></a>
 		   
 		   <hr style="margin-top:10px" color="#C0C0C0" size=1>
-		   <input style="margin-bottom:10px" type="text" class="search-query" placeholder="Search">
-		  <br> <div class="scroll">
-		   <table id="maintable" width="1000px" style="table-layout:fixed;word-break:break-all; word-wrap:break-all;" border=2 cellpadding=2>
+		   
+		   <div class="scroll">
+		   <table id="maintable" width="1000px" class="maintable" style="table-layout:fixed;margin:0px" border=2 cellpadding=2>
 		     <tr align="center" style="font-weight:bold" height="30px">
-		       <td width="30px"><input type="checkbox" onclick="selectAll('checkbox','del')"></td>
-		       <td width="180px">Name</td>
-		       <td width="160px">Group Name</td>
-		       <td width="150px">Scaling Adjustment</td>
-		       <td width="200px">Adjustment Type</td>
-		       <td width="150px">Cooldown(s)</td>
+		       <th width="30px"><input type="checkbox" onclick="selectAll('checkbox','del')"></th>
+		       <th width="180px">Name</th>
+		       <th width="160px">Group Name</th>
+		       <th width="150px">Scaling Adjustment</th>
+		       <th width="200px">Adjustment Type</th>
+		       <th width="150px">Cooldown(s)</th>
 		     </tr>
 		     
 		     <%for(ScalingPolicy sc: policies){%>
