@@ -34,7 +34,7 @@ delete some AutoScaling Group, make sure no instances are related to it.
 
 Screen shots
 ---------
-Just see the <a href="https://github.com/xiaoma318/ASGConsole/wiki">wiki</a>
+Just see the <a href="https://docs.google.com/file/d/0B4HuB0nTzQgpS0wxTlRtVC1Gelk/edit?usp=sharing">ASGConsole Screenshots</a>
 
 Contact me
 -------------
