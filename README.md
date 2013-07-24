@@ -32,6 +32,10 @@ you don't see anything changed in the instance list, just refresh the page after
 4. If you want to delete some Launch Configuration Group, make sure no AutoScaling Group are using it, also if you want
 delete some AutoScaling Group, make sure no instances are related to it.
 
+Screen shots
+---------
+Just see the <a href="https://github.com/xiaoma318/ASGConsole/wiki">wiki</a>
+
 Contact me
 -------------
 If you have some questions, or want to give some advice, which I appreicated, just feel free to contact me.
