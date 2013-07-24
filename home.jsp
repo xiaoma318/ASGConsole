@@ -404,7 +404,7 @@ function checkSC(){
   			  <tr>
   			    <td align="right">Adjustment Type: </td>
   			    <td>  
-  			      <select name="adjustmenttype">
+  			      <select name="adjustmenttype"  id="adjustmenttype" onclick="checkAdjustment()">
     	            <option onclick="disable()">ChangeInCapacity</option>
     	            <option onclick="disable()">ExactCapacity</option>
     	            <option onclick="active()">PercentChangeInCapacity</option>
