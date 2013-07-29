@@ -76,20 +76,6 @@ function checkSC(){
 	form.submit();
 }
 
-function check(){
-	var e = document.getElementById('adjustmenttype');
-	var adjustmenttype = e.options[e.selectedIndex].value;
-	var obj = document.getElementById("minstep");
-	
-	if(adjustmenttype == "PercentChangeInCapacity"){
-		
-		obj.disabled = false;
-	}
-	else{
-		obj.disabled = true;
-	}
-
-}
 </script>
 </head>
 <body>
@@ -171,7 +157,7 @@ if(msg!=null && msg.equals("1")){%>
   			  <tr>
   			    <td align="right">Adjustment Type: </td>
   			    <td>  
-  			      <select name="adjustmenttype" id='adjustmenttype' onclick="check()">
+  			      <select name="adjustmenttype" id='adjustmenttype' onclick="checkAdjustment()">
     	            <option value="ChangeInCapacity">ChangeInCapacity</option>
     	            <option value="ExactCapacity">ExactCapacity</option>
     	            <option value="PercentChangeInCapacity">PercentChangeInCapacity</option>

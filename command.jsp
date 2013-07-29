@@ -26,6 +26,7 @@ body {
 <body>
 <%String feedback = (String)request.getAttribute("feedback");%>
 <%String instance = request.getParameter("instance");
+String filepath = (String)request.getAttribute("filepath");
 if (instance == null){
 	instance = (String)request.getAttribute("instance");
 }
@@ -47,7 +48,7 @@ if (instance == null){
   	
   		 <tr>
   			 <td align="right">Private Key path: *</td>
-  			 <td><input style="width:350px" type="text" name="filepath" ></td>
+  			 <td><input style="width:350px" type="text" name="filepath" value=<%=filepath %>></td>
   		 </tr>
   		 <tr>
   		   <td align="right">Command: *</td>

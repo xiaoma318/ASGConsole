@@ -59,6 +59,11 @@ function check(){
 }
 </script>
 <body>
+<%
+String msg = (String)request.getAttribute("msg");
+if(msg!=null)
+	 out.println("<script>alert('Access key or Secret key not correct!')</script>");
+%>
  <div class="container">
 
      <form id="form" action="LoginIn" method="post" class="form-signin">

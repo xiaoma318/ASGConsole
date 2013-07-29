@@ -101,7 +101,17 @@ List<LaunchConfiguration> configs = client.describeLaunchConfigurations().getLau
 List<AutoScalingGroup> groups = client.describeAutoScalingGroups().getAutoScalingGroups();
 AmazonEC2Client ec2Client = new AmazonEC2Client(basicAWSCredentials);
 List<AvailabilityZone> zones= ec2Client.describeAvailabilityZones().getAvailabilityZones();
+String deleteASG = (String)session.getAttribute("deleteASG");
 
+if(deleteASG!=null){
+ out.println("<script>alert(\""+deleteASG+"\")</script>");
+ session.setAttribute("deleteASG",null);
+}
+String delInstance = (String)session.getAttribute("delInstance");
+if(delInstance!=null){
+	 out.println("<script>alert(\""+delInstance+"\")</script>");
+	 session.setAttribute("delInstance",null);
+	}
 %>
 
 <script type="text/javascript">

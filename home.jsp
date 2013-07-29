@@ -46,6 +46,12 @@ function selectAMI(){
 	e.value=value.value;
 }
 
+var secondsBeforeExpire = ${pageContext.session.maxInactiveInterval};
+var timeToDecide = 30; // Give client 15 seconds to choose.
+setTimeout(function() {
+    alert('Your session is about to timeout in ' + timeToDecide + ' seconds!')
+}, (secondsBeforeExpire - timeToDecide) * 1000);
+
 </script>
 </head>
 <body>

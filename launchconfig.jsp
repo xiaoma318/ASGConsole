@@ -71,7 +71,14 @@ AmazonEC2Client ec2Client = new AmazonEC2Client(basicAWSCredentials);
 DescribeKeyPairsResult describeKeyPair =  ec2Client.describeKeyPairs();
 List<KeyPairInfo> keypairs = describeKeyPair.getKeyPairs();
 List<SecurityGroup> describeSC= ec2Client.describeSecurityGroups().getSecurityGroups();
-%>	
+String deleteLC = (String)session.getAttribute("deleteLC");
+
+if(deleteLC!=null){
+ out.println("<script>alert(\""+deleteLC+"\")</script>");
+ session.setAttribute("deleteLC",null);
+}
+%>
+
 <script type="text/javascript">
 function checkLC(){
 	var lcname = document.getElementById("lcname").value;

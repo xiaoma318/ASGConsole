@@ -69,6 +69,7 @@ DescribeAutoScalingGroupsRequest dsRequest = new DescribeAutoScalingGroupsReques
 AutoScalingGroup asg = client.describeAutoScalingGroups(dsRequest).getAutoScalingGroups().get(0);
 List<Instance> instances = asg.getInstances();
 String feedback = (String)request.getAttribute("res");
+String filepath = (String)request.getAttribute("filepath");
 %>
 
   <form id ='form' action="GroupCommand" method="post">
@@ -92,7 +93,7 @@ String feedback = (String)request.getAttribute("res");
   	
   		 <tr>
   			 <td align="right">Private Key path: *</td>
-  			 <td><input style="width:350px" type="text" name="filepath" ></td>
+  			 <td><input style="width:350px" type="text" name="filepath" value=<%=filepath %>></td>
   		 </tr>
   		 <tr>
   		   <td align="right">Command: *</td>
