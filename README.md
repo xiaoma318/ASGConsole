@@ -31,6 +31,6 @@ Just see the <a href="https://docs.google.com/file/d/0B4HuB0nTzQgpS0wxTlRtVC1Gel
 
 Contact me
 -------------
-If you have some questions, or want to give some advice, which I appreicated, just feel free to contact me.
-Email: xiaoma318@yahoo.com
+If you have some questions, or want to give some advice, which I'd be really appreicated, just feel free to contact me.
+<br>Email: xiaoma318@yahoo.com
 
