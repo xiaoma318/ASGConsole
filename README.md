@@ -6,7 +6,8 @@ Description
 ASGConsole provides a user friendly manage console for the AWS AutoScaling Service, which AWS don't have currently.
 Basic function includes Display/Create/Delete/Edit Launch Configuration Group, AutoScaling Group and Scaling Policy 
 Group. Advanced funciton is you can remotely enter command to the instances in AutoScaling Group, and it support to do 
-this to multiple instances at the same time. 
+this to multiple instances at the same time. Besides, it also include log funciton, you can check the logs under ASGLog
+directory. 
 
 Start using it
 ----------
