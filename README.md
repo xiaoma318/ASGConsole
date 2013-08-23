@@ -16,7 +16,7 @@ use the Remote Command function, you must make sure your instances have some pri
 webpage, you need to provide the exact filepath of the private key file(.pem), as I has tested, on Mac OS and Windows
 you can provide the whole filepath, on the AWS Linux Instance it seems not work, but you can put the .pem file into the 
 server directory, and instead of the whole filepath, you can just enter the file name of it.
-
+<br>Here's a guide video for it.http://www.youtube.com/watch?v=Vfx8XIMrVIM&feature=em-upload_owner
 
 Some notes
 -------
