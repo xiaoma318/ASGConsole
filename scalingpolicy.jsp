@@ -80,8 +80,8 @@ function checkSC(){
 </head>
 <body>
 <%
-//BasicAWSCredentials basicAWSCredentials = (BasicAWSCredentials)session.getAttribute("AWSCredentials");
-BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials("AKIAJR3XOWMQKVZXHOYQ","1L7iMWoKktZx9ZqAjBQx8JajA9BDVwJtVSf6GX1T");
+BasicAWSCredentials basicAWSCredentials = (BasicAWSCredentials)session.getAttribute("AWSCredentials");
+//BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials("AKIAJR3XOWMQKVZXHOYQ","1L7iMWoKktZx9ZqAjBQx8JajA9BDVwJtVSf6GX1T");
 AmazonAutoScalingClient client = new AmazonAutoScalingClient(basicAWSCredentials);
 List<ScalingPolicy> policies = client.describePolicies().getScalingPolicies();
 List<AutoScalingGroup> groups = client.describeAutoScalingGroups().getAutoScalingGroups();
