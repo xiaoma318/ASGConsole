@@ -18,6 +18,14 @@ you can provide the whole filepath, on the AWS Linux Instance it seems not work,
 server directory, and instead of the whole filepath, you can just enter the file name of it.
 <br>Here's a guide video for it.http://www.youtube.com/watch?v=Vfx8XIMrVIM&feature=em-upload_owner
 
+Technology 
+--------
+It's a full-stack project. 
+* Back-end: Java, JSP
+* Front-end: HTML5, CSS, JavaScript, Twitter Bootcamp 2
+* API: Amazon Web Service Java Api
+* Host: AWS EC2, Tomcat 7
+
 Some notes
 -------
 
@@ -30,8 +38,12 @@ Screen shots
 ---------
 Just see the <a href="https://docs.google.com/file/d/0B4HuB0nTzQgpS0wxTlRtVC1Gelk/edit?usp=sharing">ASGConsole Screenshots</a>
 
+Application Link
+----------
+<a href = "chengma.net/ASG"> ASG Console </a>
+
 Contact me
 -------------
 If you have some questions, or want to give some advice, which I'd be really appreicated, just feel free to contact me.
 <br>Email: xiaoma318@yahoo.com
-
+profile: <a href = "chengma.net"> Cheng Ma</a>
