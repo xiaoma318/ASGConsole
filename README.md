@@ -45,5 +45,5 @@ Application Link
 Contact me
 -------------
 If you have some questions, or want to give some advice, which I'd be really appreicated, just feel free to contact me.
-<br>Email: xiaoma318@yahoo.com
-profile: <a href = "chengma.net"> Cheng Ma</a>
+<br>Email: xiaoma318@gmail.com
+<br>profile: <a href = "chengma.net"> Cheng Ma</a>
